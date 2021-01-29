@@ -14,18 +14,14 @@ class Login extends React.Component {
 
   handleLogin(e) {
     e.preventDefault()
-    axios.get('/api/login')
-      .then((result) => {
-        console.log(result)
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    window.location.href="http://localhost:3000/api/login"
   }
 
   render() {
     return (
+      <div>
       <button onClick={this.handleLogin}>Login</button>
+      </div>
     )
   }
 }
