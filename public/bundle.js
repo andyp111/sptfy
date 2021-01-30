@@ -9,6 +9,26 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
+  \*****************************************************************/
+/***/ ((module) => {
+
+eval("function _arrayLikeToArray(arr, len) {\n  if (len == null || len > arr.length) len = arr.length;\n\n  for (var i = 0, arr2 = new Array(len); i < len; i++) {\n    arr2[i] = arr[i];\n  }\n\n  return arr2;\n}\n\nmodule.exports = _arrayLikeToArray;\n\n//# sourceURL=webpack://sptfy/./node_modules/@babel/runtime/helpers/arrayLikeToArray.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/arrayWithHoles.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
+  \***************************************************************/
+/***/ ((module) => {
+
+eval("function _arrayWithHoles(arr) {\n  if (Array.isArray(arr)) return arr;\n}\n\nmodule.exports = _arrayWithHoles;\n\n//# sourceURL=webpack://sptfy/./node_modules/@babel/runtime/helpers/arrayWithHoles.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
@@ -59,6 +79,26 @@ eval("var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf */ \"./node_
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js ***!
+  \*********************************************************************/
+/***/ ((module) => {
+
+eval("function _iterableToArrayLimit(arr, i) {\n  if (typeof Symbol === \"undefined\" || !(Symbol.iterator in Object(arr))) return;\n  var _arr = [];\n  var _n = true;\n  var _d = false;\n  var _e = undefined;\n\n  try {\n    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {\n      _arr.push(_s.value);\n\n      if (i && _arr.length === i) break;\n    }\n  } catch (err) {\n    _d = true;\n    _e = err;\n  } finally {\n    try {\n      if (!_n && _i[\"return\"] != null) _i[\"return\"]();\n    } finally {\n      if (_d) throw _e;\n    }\n  }\n\n  return _arr;\n}\n\nmodule.exports = _iterableToArrayLimit;\n\n//# sourceURL=webpack://sptfy/./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/nonIterableRest.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableRest.js ***!
+  \****************************************************************/
+/***/ ((module) => {
+
+eval("function _nonIterableRest() {\n  throw new TypeError(\"Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\");\n}\n\nmodule.exports = _nonIterableRest;\n\n//# sourceURL=webpack://sptfy/./node_modules/@babel/runtime/helpers/nonIterableRest.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
@@ -79,6 +119,16 @@ eval("function _setPrototypeOf(o, p) {\n  module.exports = _setPrototypeOf = Obj
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/slicedToArray.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/slicedToArray.js ***!
+  \**************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("var arrayWithHoles = __webpack_require__(/*! ./arrayWithHoles */ \"./node_modules/@babel/runtime/helpers/arrayWithHoles.js\");\n\nvar iterableToArrayLimit = __webpack_require__(/*! ./iterableToArrayLimit */ \"./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js\");\n\nvar unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray */ \"./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js\");\n\nvar nonIterableRest = __webpack_require__(/*! ./nonIterableRest */ \"./node_modules/@babel/runtime/helpers/nonIterableRest.js\");\n\nfunction _slicedToArray(arr, i) {\n  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();\n}\n\nmodule.exports = _slicedToArray;\n\n//# sourceURL=webpack://sptfy/./node_modules/@babel/runtime/helpers/slicedToArray.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/typeof.js":
 /*!*******************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
@@ -86,6 +136,16 @@ eval("function _setPrototypeOf(o, p) {\n  module.exports = _setPrototypeOf = Obj
 /***/ ((module) => {
 
 eval("function _typeof(obj) {\n  \"@babel/helpers - typeof\";\n\n  if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") {\n    module.exports = _typeof = function _typeof(obj) {\n      return typeof obj;\n    };\n  } else {\n    module.exports = _typeof = function _typeof(obj) {\n      return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj;\n    };\n  }\n\n  return _typeof(obj);\n}\n\nmodule.exports = _typeof;\n\n//# sourceURL=webpack://sptfy/./node_modules/@babel/runtime/helpers/typeof.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
+  \***************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray */ \"./node_modules/@babel/runtime/helpers/arrayLikeToArray.js\");\n\nfunction _unsupportedIterableToArray(o, minLen) {\n  if (!o) return;\n  if (typeof o === \"string\") return arrayLikeToArray(o, minLen);\n  var n = Object.prototype.toString.call(o).slice(8, -1);\n  if (n === \"Object\" && o.constructor) n = o.constructor.name;\n  if (n === \"Map\" || n === \"Set\") return Array.from(o);\n  if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);\n}\n\nmodule.exports = _unsupportedIterableToArray;\n\n//# sourceURL=webpack://sptfy/./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js?");
 
 /***/ }),
 
@@ -425,7 +485,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ \"./node_modules/@babel/runtime/helpers/classCallCheck.js\");\n/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ \"./node_modules/@babel/runtime/helpers/createClass.js\");\n/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ \"./node_modules/@babel/runtime/helpers/inherits.js\");\n/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ \"./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js\");\n/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ \"./node_modules/@babel/runtime/helpers/getPrototypeOf.js\");\n/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var React__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! React */ \"./node_modules/React/index.js\");\n/* harmony import */ var _Login_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Login.jsx */ \"./client/src/components/Login.jsx\");\n\n\n\n\n\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, result); }; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }\n\n\n\n\nvar App = /*#__PURE__*/function (_React$Component) {\n  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default()(App, _React$Component);\n\n  var _super = _createSuper(App);\n\n  function App() {\n    var _this;\n\n    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, App);\n\n    _this = _super.call(this);\n    _this.state = {};\n    return _this;\n  }\n\n  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(App, [{\n    key: \"render\",\n    value: function render() {\n      return /*#__PURE__*/React__WEBPACK_IMPORTED_MODULE_5__.createElement(\"div\", null, /*#__PURE__*/React__WEBPACK_IMPORTED_MODULE_5__.createElement(_Login_jsx__WEBPACK_IMPORTED_MODULE_6__.default, null));\n    }\n  }]);\n\n  return App;\n}(React__WEBPACK_IMPORTED_MODULE_5__.Component);\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://sptfy/./client/src/components/App.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/slicedToArray.js\");\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Dropdown_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Dropdown.jsx */ \"./client/src/components/Dropdown.jsx\");\n/* harmony import */ var _Login_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Login.jsx */ \"./client/src/components/Login.jsx\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\n\n\nvar App = function App() {\n  console.log('Rendering APP.JS');\n  var data = [{\n    value: 1,\n    name: 'A'\n  }, {\n    value: 2,\n    name: 'B'\n  }, {\n    value: 2,\n    name: 'C'\n  }];\n\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),\n      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),\n      token = _useState2[0],\n      setToken = _useState2[1];\n\n  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {\n    axios__WEBPACK_IMPORTED_MODULE_4___default()('http://accounts.spotify.com/api/token', {\n      headers: {\n        'Content-Type': 'application/x-www-form-urlencoded',\n        'Authorization': 'Basic' + btoa({\"SPOTIFY_CLIENT_ID\":\"8724085f3ab84966863ad800d3bac8d1\",\"SPOTIFY_CLIENT_SECRET\":\"21884b2a319448028cf1f2dc223ff587\"}.SPOTIFY_CLIENT_ID + ':' + {\"SPOTIFY_CLIENT_ID\":\"8724085f3ab84966863ad800d3bac8d1\",\"SPOTIFY_CLIENT_SECRET\":\"21884b2a319448028cf1f2dc223ff587\"}.SPOTIFY_CLIENT_SECRET)\n      },\n      data: 'grant-type=client_crendentials',\n      method: 'POST'\n    }).then(function (tokenResponse) {\n      console.log(tokenResponse.data.access_token);\n      setToken(tokenResponse.data.access_token);\n    });\n  }, []);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"form\", {\n    onSubmit: function onSubmit() {}\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", {\n    className: \"container\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Dropdown_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {\n    options: data\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Dropdown_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {\n    options: data\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Login_jsx__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"button\", {\n    type: \"submit\"\n  }, \"Search\")));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://sptfy/./client/src/components/App.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Dropdown.jsx":
+/*!********************************************!*\
+  !*** ./client/src/components/Dropdown.jsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ \"./node_modules/@babel/runtime/helpers/slicedToArray.js\");\n/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\n\nvar Dropdown = function Dropdown(props) {\n  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),\n      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),\n      selectedValue = _useState2[0],\n      setSelectedValue = _useState2[1];\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"select\", {\n    value: selectedValue,\n    onChange: function onChange(e) {\n      return setSelectedValue(e.target.value);\n    }\n  }, props.options.map(function (item, index) {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"option\", {\n      key: index,\n      value: item.value\n    }, item.name);\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(\"p\", null, selectedValue));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dropdown);\n\n//# sourceURL=webpack://sptfy/./client/src/components/Dropdown.jsx?");
 
 /***/ }),
 
