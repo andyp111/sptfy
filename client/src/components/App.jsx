@@ -11,22 +11,13 @@ class App extends React.Component {
     this.state = {
       serverData: {},
       filterString:'',
-      clickedLogin: false
     }
     this.handleLogin = this.handleLogin.bind(this);
   }
   componentDidMount() {
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed.access_token;
-    console.log(accessToken)
-
-    // fetch('https://api.spotify.com/v1/me', {
-    //   headers: {
-    //     'Authorization': 'Bearer ' + accessToken
-    //   }
-    // })
-    // .then(response => response.json())
-    // .then(data => console.log(data));
+  
     axios.get('https://api.spotify.com/v1/me', {
       headers: {
         'Authorization': 'Bearer ' + accessToken
@@ -35,28 +26,16 @@ class App extends React.Component {
     .then(result => this.setState({
       serverData: {user: {name: result.data.display_name}}
     }));
+
   }
 
-  handleLogin(e) {
-    this.setState({
-      clickedLogin: !false
-    })
-    window.location.href="http://vpz-sptfy-backend.herokuapp.com/login";
-    console.log('clicked')
-    e.preventDefault();
-  }
 
   render() {
     return (
       <div>
         {this.state.serverData.user ?
           <div>
-            <h1>{this.state.serverData.user.name}'s playlists</h1>
-            {this.state.serverData.user.playlists && 
-              <div>
-              Hello World
-              </div>
-            }
+            <h1>{this.state.serverData.user.name}'s Dashboard</h1>
             </div>
             : <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>Sign in</button>
         }
@@ -68,3 +47,7 @@ class App extends React.Component {
 //user login to app -> homepage
 //will need to edit frontend uri on heroku
 export default App;
+
+//user can search a song to play
+//user can add songs to playlist from recommended
+//user can join room and chat
