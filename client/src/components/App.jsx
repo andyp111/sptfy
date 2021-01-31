@@ -9,7 +9,7 @@ class App extends React.Component {
     super();
 
     this.state = {
-      serverData: [],
+      serverData: {},
       filterString:'',
       clickedLogin: false
     }
@@ -32,7 +32,9 @@ class App extends React.Component {
         'Authorization': 'Bearer ' + accessToken
       }
     })
-    .then(result => console.log(result.data));
+    .then(result => this.setState({
+      serverData: {user: {name: result.data.display_name}}
+    }));
   }
 
   handleLogin(e) {
