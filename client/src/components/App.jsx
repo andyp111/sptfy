@@ -1,48 +1,68 @@
 import React , { useState, useEffect } from 'react';
 import Dropdown from './Dropdown.jsx';
 import axios from 'axios';
+import queryString from 'query-string';
 
 
-const App = () => {
-  
+class App extends React.Component {
+  constructor() {
+    super();
 
-  console.log('Rendering APP.JS');
+    this.state = {
+      serverData: [],
+      filterString:'',
+      clickedLogin: false
+    }
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+  componentDidMount() {
+    let parsed = queryString.parse(window.location.search);
+    let accessToken = parsed.access_token;
+    console.log(accessToken)
 
-  const data = [
-    {value: 1, name: 'A'},
-    {value: 2, name: 'B'},
-    {value: 2, name: 'C'}
-  ];
-
-  const [token, setToken] = useState('');
-
-  useEffect(() => {
-    axios('http://accounts.spotify.com/api/token', {
+    // fetch('https://api.spotify.com/v1/me', {
+    //   headers: {
+    //     'Authorization': 'Bearer ' + accessToken
+    //   }
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log(data));
+    axios.get('https://api.spotify.com/v1/me', {
       headers: {
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Authorization': 'Basic' + btoa(process.env.SPOTIFY_CLIENT_ID  + ':' + process.env.SPOTIFY_CLIENT_SECRET)
-      },
-      data: 'grant-type=client_crendentials',
-      method: 'POST'
+        'Authorization': 'Bearer ' + accessToken
+      }
     })
-    .then((tokenResponse) => {
-      console.log(tokenResponse.data.access_token);
-      setToken(tokenResponse.data.access_token);
-    });
-  }, []);
+    .then(result => console.log(result.data));
+  }
 
-  return (
-    <form onSubmit={() => {}}>
-      <div className="container">
-        <Dropdown options={data} />
-        <Dropdown options={data} />
-        <button type="submit">
-          Search
-        </button>
+  handleLogin(e) {
+    this.setState({
+      clickedLogin: !false
+    })
+    window.location.href="http://vpz-sptfy-backend.herokuapp.com/login";
+    console.log('clicked')
+    e.preventDefault();
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.serverData.user ?
+          <div>
+            <h1>{this.state.serverData.user.name}'s playlists</h1>
+            {this.state.serverData.user.playlists && 
+              <div>
+              Hello World
+              </div>
+            }
+            </div>
+            : <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>Sign in</button>
+        }
       </div>
-    </form>
-    
-  );
+    )
+  }
 }
-
+//vpz-sptfy-backend.herokuapp.com/login
+//user login to app -> homepage
+//will need to edit frontend uri on heroku
 export default App;
