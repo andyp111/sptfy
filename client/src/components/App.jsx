@@ -1,6 +1,5 @@
 import React , { useState, useEffect } from 'react';
 import Dropdown from './Dropdown.jsx';
-import Login from './Login.jsx';
 import axios from 'axios';
 
 
@@ -37,7 +36,6 @@ const App = () => {
       <div className="container">
         <Dropdown options={data} />
         <Dropdown options={data} />
-        <Login />
         <button type="submit">
           Search
         </button>
