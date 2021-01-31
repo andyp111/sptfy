@@ -11,12 +11,16 @@ class App extends React.Component {
     this.state = {
       serverData: {},
       filterString:'',
+      accessToken: '',
     }
-    this.handleLogin = this.handleLogin.bind(this);
   }
   componentDidMount() {
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed.access_token;
+
+    this.setState({
+      accessToken: accessToken
+    })
   
     axios.get('https://api.spotify.com/v1/me', {
       headers: {
