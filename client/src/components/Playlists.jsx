@@ -1,10 +1,16 @@
 import React from 'react'
 
 const Playlists = (props) => {
-    console.log(props.name)
+    console.log(props.names)
     return (
         <div>
-            hello world
+            {props.names.map((name, index) => {
+                return (
+                    <div key={index}>
+                        {name.name}
+                    </div>
+                )
+            })}
         </div>
     )
 }

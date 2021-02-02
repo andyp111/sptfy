@@ -1,6 +1,6 @@
 import React , { useState, useEffect } from 'react';
 import Dropdown from './Dropdown.jsx';
-import Playlists from './Playlists.jsx';
+import Playlists from './Playlists.jsx'
 import axios from 'axios';
 import queryString from 'query-string';
 
@@ -55,9 +55,7 @@ class App extends React.Component {
         {this.state.username ?
           <div>
             <h1>{this.state.username}'s Dashboard</h1>
-            {this.state.playlists.map(names => {
-              <Playlists name={names}/>
-            })}
+            <Playlists names={this.state.playlists} />
             </div>
             : <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>Sign in</button>
         }
