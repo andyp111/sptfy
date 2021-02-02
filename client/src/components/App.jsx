@@ -1,5 +1,6 @@
 import React , { useState, useEffect } from 'react';
 import Dropdown from './Dropdown.jsx';
+import Playlists from './Playlists.jsx';
 import axios from 'axios';
 import queryString from 'query-string';
 
@@ -9,9 +10,10 @@ class App extends React.Component {
     super();
 
     this.state = {
-      serverData: {},
+      username: '',
       filterString:'',
       accessToken: '',
+      playlists: [],
     }
   }
   componentDidMount() {
@@ -28,18 +30,34 @@ class App extends React.Component {
       }
     })
     .then(result => this.setState({
-      serverData: {user: {name: result.data.display_name}}
+      username: result.data.display_name
     }));
 
+    axios.get('https://api.spotify.com/v1/me/playlists', {
+      headers: {
+        'Authorization': 'Bearer ' + accessToken
+      }
+    })
+    .then(result => 
+      this.setState({
+        playlists: result.data.items.map(item => ({
+          name: item.name,
+          songs: []
+        }))
+      })
+    )
   }
 
 
   render() {
     return (
       <div>
-        {this.state.serverData.user ?
+        {this.state.username ?
           <div>
-            <h1>{this.state.serverData.user.name}'s Dashboard</h1>
+            <h1>{this.state.username}'s Dashboard</h1>
+            {this.state.playlists.map(names => {
+              <Playlists name={names}/>
+            })}
             </div>
             : <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>Sign in</button>
         }
