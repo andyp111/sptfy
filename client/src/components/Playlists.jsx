@@ -7,6 +7,7 @@ const Playlists = (props) => {
             {props.names.map((name, index) => {
                 return (
                     <div key={index}>
+                       <img src={name.image} />
                         {name.name}
                     </div>
                 )

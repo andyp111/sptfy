@@ -42,6 +42,7 @@ class App extends React.Component {
       this.setState({
         playlists: result.data.items.map(item => ({
           name: item.name,
+          image: item.images[0].url,
           songs: []
         }))
       })
