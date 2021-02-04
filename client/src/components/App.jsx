@@ -43,7 +43,7 @@ class App extends React.Component {
         playlists: result.data.items.map(item => ({
           name: item.name,
           image: item.images[0].url,
-          songs: []
+          songs: item.href
         }))
       })
     )
