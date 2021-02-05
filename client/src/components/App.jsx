@@ -56,7 +56,13 @@ class App extends React.Component {
         {this.state.username ?
           <div>
             <h1>{this.state.username}'s Dashboard</h1>
-            <Playlists names={this.state.playlists} />
+            {this.state.playlists.map((name, index) => {
+              return (
+                <div key={index}>
+                  <Playlists playlist={name} />
+                </div>
+              )
+            })}
             </div>
             : <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>Sign in</button>
         }
