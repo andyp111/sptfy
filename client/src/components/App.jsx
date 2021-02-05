@@ -43,7 +43,7 @@ class App extends React.Component {
         playlists: result.data.items.map(item => ({
           name: item.name,
           image: item.images[0].url,
-          songs: item.href
+          playlistId: item.id
         }))
       })
     )
@@ -59,7 +59,7 @@ class App extends React.Component {
             {this.state.playlists.map((name, index) => {
               return (
                 <div key={index}>
-                  <Playlists playlist={name} />
+                  <Playlists playlist={name} access={this.state.accessToken}/>
                 </div>
               )
             })}
