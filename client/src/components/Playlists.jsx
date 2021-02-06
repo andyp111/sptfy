@@ -40,11 +40,14 @@ class Playlists extends React.Component {
         .then(result => this.setState({
             songList: result.data.items.map(item => ({
                 title: item.track.name,
+                songId: item.track.id,
                 artist: item.track.artists.map(artistName => {
                     return artistName.name
                 })
             }))
         }))
+        
+        //<iframe src="https://open.spotify.com/embed/playlist/1jdZzSyGkdMCjHrhFBGJBq" 
     }
 
     render() {

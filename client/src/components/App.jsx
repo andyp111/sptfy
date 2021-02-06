@@ -1,6 +1,7 @@
 import React , { useState, useEffect } from 'react';
 import Dropdown from './Dropdown.jsx';
 import Playlists from './Playlists.jsx'
+import Player from './Player.jsx';
 import axios from 'axios';
 import queryString from 'query-string';
 
@@ -14,6 +15,7 @@ class App extends React.Component {
       filterString:'',
       accessToken: '',
       playlists: [],
+      playerData: [],
     }
   }
   componentDidMount() {
@@ -47,6 +49,7 @@ class App extends React.Component {
         }))
       })
     )
+
   }
 
 
@@ -63,6 +66,7 @@ class App extends React.Component {
                 </div>
               )
             })}
+            <Player />
             </div>
             : <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>Sign in</button>
         }

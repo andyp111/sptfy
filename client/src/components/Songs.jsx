@@ -14,6 +14,7 @@ class Songs extends React.Component {
         return (
             <div>
                 {this.props.title} - {artist}
+                {this.props.songId} 
             </div>
         )
     }

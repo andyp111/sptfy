@@ -7,7 +7,7 @@ const SongsList = (props) => {
             <tbody>
                 {props.songs.map(item => {
                     return (
-                        <Songs title={item.title} artist={item.artist} />
+                        <Songs title={item.title} artist={item.artist} songId={item.songId}/>
                     )
                 })}
             </tbody>
