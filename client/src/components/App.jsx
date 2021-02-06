@@ -2,8 +2,11 @@ import React , { useState, useEffect } from 'react';
 import Dropdown from './Dropdown.jsx';
 import Playlists from './Playlists.jsx'
 import Player from './Player.jsx';
+import MyNavbar from './Navbar.jsx';
 import axios from 'axios';
 import queryString from 'query-string';
+
+
 
 
 class App extends React.Component {
@@ -59,6 +62,9 @@ class App extends React.Component {
         {this.state.username ?
           <div>
             <h1>{this.state.username}'s Dashboard</h1>
+            <div> 
+              <MyNavbar />
+            </div>
             {this.state.playlists.map((name, index) => {
               return (
                 <div key={index}>

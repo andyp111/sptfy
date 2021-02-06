@@ -19,5 +19,6 @@ class Songs extends React.Component {
         )
     }
 }
+//once click on song, then render a player with song id 
 
 export default Songs
