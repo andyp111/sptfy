@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Songs from './Songs.jsx'
+import SongsList from './SongsList.jsx'
 
 
 
@@ -53,8 +53,8 @@ class Playlists extends React.Component {
                 <h1>{this.props.playlist.name}</h1>
                 <br />
                 {this.state.clicked ? 
-                    <div onClick={this.onImageClick}>
-                        <Songs songs={this.state.songList} />
+                    <div onClick={this.onPlaylistClick}>
+                        <SongsList songs={this.state.songList} />
                     </div> 
                 : <img onClick={this.onImageClick} src={this.props.playlist.image} />}
             </div>

@@ -7,9 +7,13 @@ class Songs extends React.Component {
     }
 
     render() {
+        let artist = this.props.artist[0]
+        if (this.props.artist.length > 1) {
+            artist = this.props.artist.join(', ')
+        }
         return (
             <div>
-                hello world
+                {this.props.title} - {artist}
             </div>
         )
     }
