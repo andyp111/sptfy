@@ -54,7 +54,7 @@ class Playlists extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="playlists">
                 <h1>{this.props.playlist.name}</h1>
                 <br />
                 {this.state.clicked ? 
