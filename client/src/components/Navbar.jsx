@@ -24,18 +24,21 @@
 import React from 'react';
 import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
 import styled from 'styled-components';
+import { BsFillMusicPlayerFill } from "react-icons/bs";
+
 const Styles = styled.div`
   .navbar { 
-      background-color: gray; display:flex; flex-direction:row;
+      background-color: gray; 
+      display:flex; 
+      flex-direction:row;
+      border-radius: 15px;
       }
   a, .navbar-nav, .navbar-light .nav-link {
     color: #9FFFCB;
+    display: flex;
     &:hover { color: white; }
   }
-  .navbar-brand {
-    font-size: 1.4em;
-    color: #9FFFCB;
-    &:hover { color: white; }
+
   }
   .form-center {
     position: absolute !important;
@@ -46,11 +49,7 @@ const Styles = styled.div`
 export const MyNavbar = () => (
   <Styles>
     <Navbar expand="lg">
-      <Navbar.Brand href="/">Tutorial</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-      <Form className="form-center">
-        <FormControl type="text" placeholder="Search" className="" />
-      </Form>
+      <BsFillMusicPlayerFill />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item> 

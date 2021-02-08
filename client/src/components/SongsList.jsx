@@ -3,15 +3,15 @@ import Songs from './Songs.jsx'
 
 const SongsList = (props) => {
     return (
-        <table>
-            <tbody>
+        <div className="songs-table">
                 {props.songs.map(item => {
                     return (
-                        <Songs title={item.title} artist={item.artist} songId={item.songId}/>
+                        <div className="songs-container">
+                            <Songs title={item.title} artist={item.artist} songId={item.songId}/>
+                        </div>
                     )
                 })}
-            </tbody>
-        </table>
+        </div>
     )
 }
 

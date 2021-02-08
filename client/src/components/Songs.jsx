@@ -12,9 +12,8 @@ class Songs extends React.Component {
             artist = this.props.artist.join(', ')
         }
         return (
-            <div>
+            <div className="songs">
                 {this.props.title} - {artist}
-                {this.props.songId} 
             </div>
         )
     }

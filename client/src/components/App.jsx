@@ -74,7 +74,7 @@ class App extends React.Component {
               )
             })}
             </div>
-            <Player />
+            {/* <Player /> */}
             </div>
             : <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>Sign in</button>
         }
