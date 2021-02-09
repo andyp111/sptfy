@@ -15,4 +15,6 @@ const SongsList = (props) => {
     )
 }
 
+//songs inherit size of pic
+
 export default SongsList

@@ -25,6 +25,8 @@ import React from 'react';
 import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
 import styled from 'styled-components';
 import { BsFillMusicPlayerFill } from "react-icons/bs";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Test from './Test.jsx';
 
 const Styles = styled.div`
   .navbar { 
@@ -46,18 +48,32 @@ const Styles = styled.div`
     right: 25%;
   }
 `;
-export const MyNavbar = () => (
-  <Styles>
-    <Navbar expand="lg">
-      <BsFillMusicPlayerFill />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto">
-          <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item> 
-          <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  </Styles>
-)
+export class MyNavbar extends React.Component {
+
+  render() {
+    return (
+    <Router>
+      <Styles>
+        <Navbar expand="lg">
+          <BsFillMusicPlayerFill />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto">
+              <Nav.Item><Nav.Link href="/home">Home</Nav.Link></Nav.Item> 
+              <Nav.Item><Nav.Link href="/Playlist">Playlists</Nav.Link></Nav.Item>
+              <Nav.Item><Nav.Link href="/new">Discover New Songs</Nav.Link></Nav.Item>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </Styles>
+      <br />
+        <Switch>
+          <Route path="/home" component={Test}>
+          </Route>
+        </Switch>
+    </Router>
+    )
+  }
+}
+
 
 export default MyNavbar
