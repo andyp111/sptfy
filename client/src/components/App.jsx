@@ -1,10 +1,12 @@
 import React , { useState, useEffect } from 'react';
 import Dropdown from './Dropdown.jsx';
-import Playlists from './Playlists.jsx'
+import PlaylistList from './PlaylistList.jsx'
 import Player from './Player.jsx';
 import MyNavbar from './Navbar.jsx';
 import axios from 'axios';
 import queryString from 'query-string';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Test from './Test.jsx';
 
 
 
@@ -59,27 +61,28 @@ class App extends React.Component {
 
   render() {
     return (
+      <Router>
       <div>
         {this.state.username ?
           <div>
             <h1>{this.state.username}'s Dashboard</h1>
             <div className="navbar-main"> 
-              <MyNavbar />
+              <MyNavbar accessToken={this.state.accessToken}/>
+              <Switch>
+                <Route path="/playlist" render={()=> <PlaylistList playlistInfo={this.state.playlists} accessToken={this.state.accessToken}/>} />
+              </Switch>
+              <Switch>
+                <Route path="/new" component={Test} />
+              </Switch>
+              
             </div>
-            <div className="container">
-            {this.state.playlists.map((name, index) => {
-              return (
-                <div className="playlist-main" key={index}>
-                  <Playlists playlist={name} access={this.state.accessToken}/>
-                </div>
-              )
-            })}
+
             </div>
-            {/* <Player /> */}
-            </div>
+            
             : <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>Sign in</button>
         }
       </div>
+      </Router>
     )
   }
 }

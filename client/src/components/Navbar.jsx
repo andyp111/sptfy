@@ -52,25 +52,24 @@ export class MyNavbar extends React.Component {
 
   render() {
     return (
-    <Router>
+   
       <Styles>
         <Navbar expand="lg">
           <BsFillMusicPlayerFill />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Item><Nav.Link href="/home">Home</Nav.Link></Nav.Item> 
-              <Nav.Item><Nav.Link href="/Playlist">Playlists</Nav.Link></Nav.Item>
-              <Nav.Item><Nav.Link href="/new">Discover New Songs</Nav.Link></Nav.Item>
+              <Nav.Item>Home</Nav.Item>
+              <Link to='/playlist'>
+                <Nav.Item>Playlists</Nav.Item>
+              </Link>
+              <Link to='/new'>
+                <Nav.Item>Discover New Songs</Nav.Item>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
       </Styles>
-      <br />
-        <Switch>
-          <Route path="/home" component={Test}>
-          </Route>
-        </Switch>
-    </Router>
+
     )
   }
 }
