@@ -7,7 +7,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Test from './Test.jsx';
-
+import Dashboard from './Dashboard.jsx';
 
 
 
@@ -100,8 +100,11 @@ class App extends React.Component {
             <h1>{this.state.username}'s Dashboard</h1>
             <div className="navbar-main"> 
               <MyNavbar accessToken={this.state.accessToken}/>
-              {this.state.userFollowers}
-              <img src={this.state.userImage} />
+                {/* {this.state.userFollowers ? <Dashboard followers={this.state.userFollowers} userImage={this.state.userImage} topTracks={this.state.topTracks} topArtists={this.state.topArtists}/>
+                : <div>loading...</div>} */}
+                <Switch>
+                  <Route path = "/home" render={() => <Dashboard followers={this.state.userFollowers} userImage={this.state.userImage} topTracks={this.state.topTracks} topArtists={this.state.topArtists}/>} />
+                </Switch>
               <Switch>
                 <Route path="/playlist" render={()=> <PlaylistList playlistInfo={this.state.playlists} accessToken={this.state.accessToken}/>} />
               </Switch>

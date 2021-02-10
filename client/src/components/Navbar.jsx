@@ -58,7 +58,9 @@ export class MyNavbar extends React.Component {
           <BsFillMusicPlayerFill />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Item>Home</Nav.Item>
+              <Link to='/home'>
+                <Nav.Item>Home</Nav.Item>
+              </Link>
               <Link to='/playlist'>
                 <Nav.Item>Playlists</Nav.Item>
               </Link>
