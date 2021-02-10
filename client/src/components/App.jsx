@@ -18,6 +18,8 @@ class App extends React.Component {
 
     this.state = {
       username: '',
+      userFollowers: '',
+      userImage: '',
       filterString:'',
       accessToken: '',
       playlists: [],
@@ -40,7 +42,9 @@ class App extends React.Component {
       }
     })
     .then(result => this.setState({
-      username: result.data.display_name
+      username: result.data.display_name,
+      userFollowers: result.data.followers.total,
+      userImage: result.data.images[0].url
     }));
     //get user playlists
     axios.get('https://api.spotify.com/v1/me/playlists', {
@@ -96,6 +100,8 @@ class App extends React.Component {
             <h1>{this.state.username}'s Dashboard</h1>
             <div className="navbar-main"> 
               <MyNavbar accessToken={this.state.accessToken}/>
+              {this.state.userFollowers}
+              <img src={this.state.userImage} />
               <Switch>
                 <Route path="/playlist" render={()=> <PlaylistList playlistInfo={this.state.playlists} accessToken={this.state.accessToken}/>} />
               </Switch>
