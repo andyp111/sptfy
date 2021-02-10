@@ -22,6 +22,8 @@ class App extends React.Component {
       accessToken: '',
       playlists: [],
       playerData: [],
+      topTracks: [],
+      topArtists: [],
     }
   }
   componentDidMount() {
@@ -31,7 +33,7 @@ class App extends React.Component {
     this.setState({
       accessToken: accessToken
     })
-  
+    //getting user info -> should get user image
     axios.get('https://api.spotify.com/v1/me', {
       headers: {
         'Authorization': 'Bearer ' + accessToken
@@ -40,7 +42,7 @@ class App extends React.Component {
     .then(result => this.setState({
       username: result.data.display_name
     }));
-
+    //get user playlists
     axios.get('https://api.spotify.com/v1/me/playlists', {
       headers: {
         'Authorization': 'Bearer ' + accessToken
@@ -55,6 +57,32 @@ class App extends React.Component {
         }))
       })
     )
+    //get user top tracks
+    axios.get('https://api.spotify.com/v1/me/top/tracks', {
+      headers: {
+        'Authorization': 'Bearer ' + accessToken
+      }
+    })
+    .then(result => this.setState({
+      topTracks: result.data.items.map(item => ({
+        track: item.name,
+        artist: item.artists.map(artistName => {
+          return artistName.name
+        })
+      }))
+    }))
+    //get user top artists
+    axios.get('https://api.spotify.com/v1/me/top/artists', {
+      headers: {
+        'Authorization': 'Bearer ' + accessToken
+      } 
+    })
+    .then(result => this.setState({
+      topArtists: result.data.items.map(item => ({
+        name: item.name,
+        image: item.images[0].url
+      }))
+    }))
 
   }
 
@@ -74,11 +102,8 @@ class App extends React.Component {
               <Switch>
                 <Route path="/new" component={Test} />
               </Switch>
-              
             </div>
-
-            </div>
-            
+          </div>
             : <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>Sign in</button>
         }
       </div>
