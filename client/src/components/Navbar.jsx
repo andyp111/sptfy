@@ -27,6 +27,7 @@ import styled from 'styled-components';
 import { BsFillMusicPlayerFill } from "react-icons/bs";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Test from './Test.jsx';
+import Dashboard from './Dashboard.jsx';
 
 const Styles = styled.div`
   .navbar { 
@@ -38,6 +39,7 @@ const Styles = styled.div`
   a, .navbar-nav, .navbar-light .nav-link {
     color: #9FFFCB;
     display: flex;
+    padding: 10px 5px 10px 10px;
     &:hover { color: white; }
   }
 
@@ -49,17 +51,19 @@ const Styles = styled.div`
   }
 `;
 export class MyNavbar extends React.Component {
-
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
-   
+      <div>
       <Styles>
         <Navbar expand="lg">
-          <BsFillMusicPlayerFill />
+          <BsFillMusicPlayerFill sz="large"/>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Link to='/home'>
-                <Nav.Item>Home</Nav.Item>
+              <Link to='/aboutyou'>
+                <Nav.Item>About You</Nav.Item>
               </Link>
               <Link to='/playlist'>
                 <Nav.Item>Playlists</Nav.Item>
@@ -71,7 +75,8 @@ export class MyNavbar extends React.Component {
           </Navbar.Collapse>
         </Navbar>
       </Styles>
-
+      {/* <Dashboard followers={this.props.userFollowers} userImage={this.props.userImage} topTracks={this.props.topTracks} topArtists={this.props.topArtists} /> */}
+      </div>
     )
   }
 }

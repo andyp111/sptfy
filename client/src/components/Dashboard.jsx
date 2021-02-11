@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
                     {this.props.topTracks.map((item, index) => {
                         return (
                             <div className="tracks" key={index}>
-                                {item.track} - {item.artist[0]}
+                               {index + 1}. {item.track} - {item.artist[0]}
                             </div>
                         )
                     })}
@@ -22,14 +22,13 @@ class Dashboard extends React.Component {
                     {this.props.topArtists.map((artist, index) => {
                         return (
                             <div className="artist" key={index}>
-                                <img className="artist-img" src={artist.image}/>
-                                {/* <p>{artist.name}</p> */}
+                                <div className="img-text-wrapper">
+                                    <span className="artist-img-name">{artist.name}</span>
+                                    <img className="artist-img" src={artist.image}></img>
+                                </div>
                             </div>
                         )
                     })}
-                </div>
-                <div className="user-image">
-                    <img src={this.props.userImage}/>
                 </div>
                 <p className="followers">{this.props.followers}</p>
             </div>
@@ -38,3 +37,5 @@ class Dashboard extends React.Component {
 }
 
 export default Dashboard
+
+//add dashboard component in nav? 

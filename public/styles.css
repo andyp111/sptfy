@@ -18,7 +18,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap-reverse;
   min-width: 50%;
-  padding: 50px;
+  padding: 25px;
   margin: auto;
 
 }
@@ -65,13 +65,15 @@ body {
 }
 
 .dashboard {
-  padding-top: 25%;
+  padding-top: 15px;
   min-width: 100%;
   display: flex;
 }
 
 .top-tracks {
-  min-width: 45%;
+  min-width: fit-content;
+  background-color: gray;
+  border-radius: 25px;
 }
 
 .top-artist {
@@ -82,6 +84,7 @@ body {
   max-height: 700px;
   overflow: scroll;
   
+  
 }
 
 .artist {
@@ -89,9 +92,17 @@ body {
   flex-wrap: wrap;
   max-width: 500px;
   max-height: 500px;
+  position: relative;
 }
 .artist-img {
   max-width: 250px;
   max-height: 250px;
   display: flex;
+  position: relative;
 }
+
+.artist-img-name {
+  position: absolute;
+  z-index: 100;
+}
+
