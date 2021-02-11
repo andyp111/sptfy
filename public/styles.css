@@ -83,6 +83,7 @@ body {
   flex-wrap: wrap;
   max-height: 700px;
   overflow: scroll;
+  border-radius: 25px;
   
   
 }

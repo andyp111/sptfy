@@ -1,9 +1,30 @@
 import React from 'react';
+import TopArtist from './TopArtist.jsx'
+
 
 class Dashboard extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            setIsShown: false
+        }
+        this.onImageHover = this.onImageHover.bind(this);
+        this.onImageLeave = this.onImageLeave.bind(this);
     }
+
+    onImageHover(e) {
+        this.setState({
+            setIsShown: true
+        })
+    }
+
+    onImageLeave(e) {
+        this.setState({
+            setIsShown: false
+        })
+    }
+
 
     render() {
         return (
@@ -21,14 +42,10 @@ class Dashboard extends React.Component {
                 <div className="top-artist">
                     {this.props.topArtists.map((artist, index) => {
                         return (
-                            <div className="artist" key={index}>
-                                <span className="artist-img-name">{artist.name}</span>
-                                <img className="artist-img" src={artist.image}></img>
-                            </div>
+                            <TopArtist artist={artist}/>
                         )
                     })}
                 </div>
-                <p className="followers">{this.props.followers}</p>
             </div>
         )
     }

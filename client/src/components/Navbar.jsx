@@ -78,7 +78,7 @@ export class MyNavbar extends React.Component {
                 <Nav.Item>Playlists</Nav.Item>
               </Link>
               <Link to='/new'>
-                <Nav.Item>Discover New Songs</Nav.Item>
+                <Nav.Item>Discover New Music</Nav.Item>
               </Link>
             </Nav>
           </Navbar.Collapse>
