@@ -49,6 +49,15 @@ const Styles = styled.div`
     left: 25%;
     right: 25%;
   }
+
+  .nav-image {
+    padding: 5px;
+    max-width: 50px;
+    max-height: 50px;
+    position: absolute;
+    right: 10px;
+    border-radius: 25px;
+  }
 `;
 export class MyNavbar extends React.Component {
   constructor(props) {
@@ -73,6 +82,7 @@ export class MyNavbar extends React.Component {
               </Link>
             </Nav>
           </Navbar.Collapse>
+          <img className="nav-image" src={this.props.userImage}/>
         </Navbar>
       </Styles>
       {/* <Dashboard followers={this.props.userFollowers} userImage={this.props.userImage} topTracks={this.props.topTracks} topArtists={this.props.topArtists} /> */}

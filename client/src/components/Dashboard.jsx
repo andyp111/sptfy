@@ -22,10 +22,8 @@ class Dashboard extends React.Component {
                     {this.props.topArtists.map((artist, index) => {
                         return (
                             <div className="artist" key={index}>
-                                <div className="img-text-wrapper">
-                                    <span className="artist-img-name">{artist.name}</span>
-                                    <img className="artist-img" src={artist.image}></img>
-                                </div>
+                                <span className="artist-img-name">{artist.name}</span>
+                                <img className="artist-img" src={artist.image}></img>
                             </div>
                         )
                     })}

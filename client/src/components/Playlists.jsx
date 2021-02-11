@@ -15,13 +15,14 @@ class Playlists extends React.Component {
 
         this.onImageClick = this.onImageClick.bind(this);
         this.onPlaylistClick = this.onPlaylistClick.bind(this);
+        this.myRef = React.createRef();
     };
 
-    componentDidUpdate() {
-        
-    }
+    
 
     onPlaylistClick() {
+        const node = this.myRef.current;
+        console.log(node);
         this.setState({
             clicked: !this.state.clicked
         })
@@ -58,7 +59,7 @@ class Playlists extends React.Component {
                 <h1>{this.props.playlist.name}</h1>
                 <br />
                 {this.state.clicked ? 
-                    <div onClick={this.onPlaylistClick}>
+                    <div className="playlist-songs" ref={this.myRef} onClick={this.onPlaylistClick}>
                         <SongsList songs={this.state.songList} />
                     </div> 
                 : <img onClick={this.onImageClick} src={this.props.playlist.image} />}
@@ -66,5 +67,6 @@ class Playlists extends React.Component {
         )
     }
 }
+
 
 export default Playlists

@@ -99,7 +99,7 @@ class App extends React.Component {
           <div>
             <h1>{this.state.username}'s Dashboard</h1>
             <div className="navbar-main"> 
-              <MyNavbar accessToken={this.state.accessToken} />
+              <MyNavbar accessToken={this.state.accessToken} userImage={this.state.userImage}/>
                 {/* {this.state.userFollowers ? <Dashboard followers={this.state.userFollowers} userImage={this.state.userImage} topTracks={this.state.topTracks} topArtists={this.state.topArtists}/>
                 : <div>loading...</div>} */}
                 <Switch>
