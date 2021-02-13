@@ -34,7 +34,7 @@ class Dashboard extends React.Component {
                     {this.props.topTracks.map((item, index) => {
                         return (
                             <div className="tracks" key={index}>
-                               {index + 1}. {item.track} - {item.artist[0]}
+                               <p className="track-p">{index + 1}. {item.track} - {item.artist[0]}</p>
                             </div>
                         )
                     })}

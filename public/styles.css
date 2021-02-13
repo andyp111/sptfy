@@ -75,6 +75,12 @@ body {
   background-color: gray;
   border-radius: 25px;
 }
+.tracks {
+  border-top: black;
+}
+.track-p {
+  color: whitesmoke;
+}
 
 .top-artist {
   min-width: 73%;
@@ -84,7 +90,6 @@ body {
   max-height: 700px;
   overflow: scroll;
   border-radius: 25px;
-  
   
 }
 
@@ -100,6 +105,10 @@ body {
   max-height: 250px;
   display: flex;
   position: relative;
+}
+
+.artist-img:hover {
+  opacity: 0.5;
 }
 
 .artist-img-name {
