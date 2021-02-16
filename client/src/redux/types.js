@@ -1,0 +1,4 @@
+export const GET_USER_INFO = 'GET_USER_INFO';
+export const USER_ERROR = 'USERS_ERROR';
+
+export const GET_USER_PLAYLISTS = 'GET_USER_PLAYLISTS';
