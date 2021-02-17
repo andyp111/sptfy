@@ -4,14 +4,15 @@ import store from '../store/store.js';
 import queryString from 'query-string';
 
 export const fetchUserTopArtists = () => {
-
+    const fromStoreToken = store.getState().userInfo.accessToken;
+    console.log(fromStoreToken);
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed.access_token;
 
     return async function(dispatch) {
         return await axios.get('https://api.spotify.com/v1/me/top/artists', {
             headers: {
-                    'Authorization': 'Bearer ' + accessToken
+                    'Authorization': 'Bearer ' + fromStoreToken
                 }
             })
             .then((result) => {
