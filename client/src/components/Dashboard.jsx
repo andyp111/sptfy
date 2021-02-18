@@ -60,3 +60,4 @@ const mapDispatchToProps = {
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
 
+//is there a way to resize the image?
