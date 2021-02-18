@@ -6,7 +6,7 @@ const TopArtist = (props) => {
 
     return (
         <div className="artist">
-            {isShown ? <span className="artist-img-name">{props.artist.name}</span> : null}
+            {isShown ? <span onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}className="artist-img-name">{props.artist.name}</span> : null}
             <img className="artist-img" 
                 onMouseEnter={() => setIsShown(true)} 
                 onMouseLeave={() => setIsShown(false)}

@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import store from '../redux/store/store.js'
 import SongsList from './SongsList.jsx'
 
 
@@ -10,19 +11,33 @@ class Playlists extends React.Component {
 
         this.state = {
             songList: [],
-            clicked: false
+            clicked: false,
+            accessToken: store.getState().userInfo.accessToken,
+            imageHovered: false
+
         }
 
         this.onImageClick = this.onImageClick.bind(this);
         this.onPlaylistClick = this.onPlaylistClick.bind(this);
-        this.myRef = React.createRef();
+        this.onImageHover = this.onImageHover.bind(this);
+        this.onImageLeave = this.onImageLeave.bind(this);
+        
     };
 
-    
+    onImageHover(e) {
+        
+        this.setState({
+            imageHovered: true
+        })
+    }
+
+    onImageLeave() {
+        this.setState({
+            imageHovered: false
+        })
+    }
 
     onPlaylistClick() {
-        const node = this.myRef.current;
-        console.log(node);
         this.setState({
             clicked: !this.state.clicked
         })
@@ -35,7 +50,7 @@ class Playlists extends React.Component {
 
         axios.get(`https://api.spotify.com/v1/playlists/${this.props.playlist.playlistId}/tracks`, {
             headers: {
-                'Authorization': 'Bearer ' + this.props.access
+                'Authorization': 'Bearer ' + this.state.accessToken
             }
         })
         .then(result => this.setState({
@@ -59,10 +74,21 @@ class Playlists extends React.Component {
                 <h1>{this.props.playlist.name}</h1>
                 <br />
                 {this.state.clicked ? 
-                    <div className="playlist-songs" ref={this.myRef} onClick={this.onPlaylistClick}>
+                    <div className="playlist-songs">
                         <SongsList songs={this.state.songList} />
+                        <span onClick={this.onPlaylistClick}>Go Back</span>
                     </div> 
-                : <img onClick={this.onImageClick} src={this.props.playlist.image} />}
+                : <div>
+                {this.state.imageHovered &&
+                    <div>
+                        <span onClick={this.onImageClick} onMouseEnter={this.onImageHover} onMouseLeave={this.onImageLeave} className="view-all-songs">View All Songs </span>
+                        <span onClick={this.onImageClick} onMouseEnter={this.onImageHover} onMouseLeave={this.onImageLeave} className="play-songs">Play!</span>
+                        
+                    </div>}
+                    {this.state.imageHovered ?
+                        <img style={{opacity: 0.5}} className="playlist-img" onMouseEnter={this.onImageHover} onMouseLeave={this.onImageLeave} src={this.props.playlist.image} />
+                        : <img className="playlist-img" onMouseEnter={this.onImageHover} onMouseLeave={this.onImageLeave} src={this.props.playlist.image} /> } 
+                </div>}
             </div>
         )
     }
@@ -70,3 +96,4 @@ class Playlists extends React.Component {
 
 
 export default Playlists
+//instead of onMouse effects render component but change opacity depending on hover

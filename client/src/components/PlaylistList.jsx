@@ -1,19 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Playlists from './Playlists.jsx';
+import { fetchPlaylistInfo } from '../redux/actions/fetchUserPlaylists.js'
 
-const PlaylistList = (props) => {
-    
-    return (
-        <div className = "container">
-            {props.playlistInfo.map((name, index) => {
+
+class PlaylistList extends React.Component {
+    componentDidMount() {
+        this.props.fetchPlaylistInfo()
+    }
+
+    render() {
+        console.log(this.props.playlists.playlists)
+        return (
+            <div className = "container">
+            {this.props.playlists.playlists.map((name, index) => {
                 return (
                     <div className="playlist-main" key={index}>
-                        <Playlists playlist={name} access={props.accessToken} />
+                        <Playlists playlist={name} />
                     </div>
                 )
             })}
         </div>
-    )
+        )
+    }
 }
 
-export default PlaylistList
+const mapStateToProps = (state) => ({playlists: state.playlists})
+export default connect(mapStateToProps, { fetchPlaylistInfo })(PlaylistList)

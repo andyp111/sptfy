@@ -28,6 +28,7 @@ import { BsFillMusicPlayerFill } from "react-icons/bs";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Test from './Test.jsx';
 import Dashboard from './Dashboard.jsx';
+import store from '../redux/store/store.js'
 
 const Styles = styled.div`
   .navbar { 
@@ -62,6 +63,10 @@ const Styles = styled.div`
 export class MyNavbar extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      userImage: store.getState().userInfo.userImg
+    }
   }
   render() {
     return (

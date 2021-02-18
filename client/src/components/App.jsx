@@ -8,7 +8,8 @@ import queryString from 'query-string';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Test from './Test.jsx';
 import Dashboard from './Dashboard.jsx';
-
+import UserInfo from './UserInfo.jsx';
+import store from '../redux/store/store.js';
 
 
 
@@ -17,103 +18,62 @@ class App extends React.Component {
     super();
 
     this.state = {
-      username: '',
-      userFollowers: '',
-      userImage: '',
+      username: store.getState().userInfo.username,
+      userImage: store.getState().userInfo.userImg,
       filterString:'',
       accessToken: '',
-      playlists: [],
-      playerData: [],
-      topTracks: [],
-      topArtists: [],
+      clicked: false
     }
+    this.onLoginClick = this.onLoginClick.bind(this);
   }
+
   componentDidMount() {
+  }
+
+  onLoginClick() {
+    this.setState({
+      clicked: true
+    })
+    window.location = 'http://vpz-sptfy-backend.herokuapp.com/login';
+  }
+
+  render() {
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed.access_token;
 
-    this.setState({
-      accessToken: accessToken
-    })
-    //getting user info -> should get user image
-    axios.get('https://api.spotify.com/v1/me', {
-      headers: {
-        'Authorization': 'Bearer ' + accessToken
-      }
-    })
-    .then(result => this.setState({
-      username: result.data.display_name,
-      userFollowers: result.data.followers.total,
-      userImage: result.data.images[0].url
-    }));
-    //get user playlists
-    axios.get('https://api.spotify.com/v1/me/playlists', {
-      headers: {
-        'Authorization': 'Bearer ' + accessToken
-      }
-    })
-    .then(result => 
-      this.setState({
-        playlists: result.data.items.map(item => ({
-          name: item.name,
-          image: item.images[0].url,
-          playlistId: item.id
-        }))
-      })
-    )
-    //get user top tracks
-    axios.get('https://api.spotify.com/v1/me/top/tracks', {
-      headers: {
-        'Authorization': 'Bearer ' + accessToken
-      }
-    })
-    .then(result => this.setState({
-      topTracks: result.data.items.map(item => ({
-        track: item.name,
-        artist: item.artists.map(artistName => {
-          return artistName.name
-        })
-      }))
-    }))
-    //get user top artists
-    axios.get('https://api.spotify.com/v1/me/top/artists', {
-      headers: {
-        'Authorization': 'Bearer ' + accessToken
-      } 
-    })
-    .then(result => this.setState({
-      topArtists: result.data.items.map(item => ({
-        name: item.name,
-        image: item.images[0].url
-      }))
-    }))
-
-  }
-
-
-  render() {
     return (
+      // <div>
+      //   <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>
+      //   Sign in
+      //   </button>
+      //   <UserInfo />
+      //   <PlaylistList />
+      //   <Dashboard />
+      // </div>
       <Router>
       <div>
-        {this.state.username ?
+        {accessToken ?
           <div>
             <h1>{this.state.username}'s Dashboard</h1>
             <div className="navbar-main"> 
               <MyNavbar accessToken={this.state.accessToken} userImage={this.state.userImage}/>
                 {/* {this.state.userFollowers ? <Dashboard followers={this.state.userFollowers} userImage={this.state.userImage} topTracks={this.state.topTracks} topArtists={this.state.topArtists}/>
                 : <div>loading...</div>} */}
+                {/* <Dashboard /> */}
+                <UserInfo />
                 <Switch>
-                  <Route path = "/aboutyou" render={() => <Dashboard followers={this.state.userFollowers} userImage={this.state.userImage} topTracks={this.state.topTracks} topArtists={this.state.topArtists}/>} />
+                  <Route path = "/aboutyou" component={Dashboard}/>
                 </Switch>
               <Switch>
-                <Route path="/playlist" render={()=> <PlaylistList playlistInfo={this.state.playlists} accessToken={this.state.accessToken}/>} />
+                <Route path="/playlist" component={PlaylistList}/>
+                
               </Switch>
               <Switch>
                 <Route path="/new" component={Test} />
               </Switch>
             </div>
           </div>
-            : <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>Sign in</button>
+            : <button onClick={this.onLoginClick}>Sign in</button>
         }
       </div>
       </Router>
@@ -126,5 +86,9 @@ class App extends React.Component {
 export default App;
 
 //user can search a song to play
+
 //user can add songs to playlist from recommended
 //user can join room and chat
+
+//look up modal and to play music when playlist click
+//look up redux with nav bar - react router

@@ -28,6 +28,7 @@ body {
   flex-direction: column;
   padding: 25px;
   max-height: 25%;
+  position: relative;
 }
 
 .songs-table {
@@ -116,6 +117,50 @@ body {
   z-index: 100;
   color:whitesmoke;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.playlist-img {
+  position: relative;
+  display: flex;
+}
+
+/* .playlist-img:hover {
+  opacity: 0.5;
+} */
+
+.playlist-options {
+  opacity: 0;
+}
+.playlist-options:hover {
+  opacity: 1;
+}
+.view-all-songs {
+  border: solid grey;
+  border-radius: 10px;
+  background-color: grey;
+  padding: 2px;
+  position: absolute;
+  z-index: 100;
+  color: whitesmoke;
+  top: 160%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  
+}
+
+.view-all-songs:hover {
+  text-decoration: underline;
+  
+  
+}
+.play-songs {
+  position: absolute;
+  z-index: 100;
+  color: whitesmoke;
+  top: 200%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
