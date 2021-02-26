@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
         return (
             <div className="dashboard">
                 <div className="top-tracks">
-                    <h1>Your Top Tracks!</h1>
+                    <h1 className="top-tracks-title">Your Top Tracks!</h1>
                     {this.props.topTracks.topTracks.map((item, index) => {
                         return (
                             <div className="tracks" key={index}>

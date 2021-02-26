@@ -2,8 +2,9 @@ import React from 'react'
 import axios from 'axios'
 import store from '../redux/store/store.js'
 import SongsList from './SongsList.jsx'
+import Modal from 'react-modal'
 
-
+Modal.setAppElement('#app');
 
 class Playlists extends React.Component {
     constructor(props) {
@@ -13,7 +14,8 @@ class Playlists extends React.Component {
             songList: [],
             clicked: false,
             accessToken: store.getState().userInfo.accessToken,
-            imageHovered: false
+            imageHovered: false,
+            modalIsOpen: false
 
         }
 
@@ -21,11 +23,11 @@ class Playlists extends React.Component {
         this.onPlaylistClick = this.onPlaylistClick.bind(this);
         this.onImageHover = this.onImageHover.bind(this);
         this.onImageLeave = this.onImageLeave.bind(this);
+        this.onModalClick = this.onModalClick.bind(this);
         
     };
 
     onImageHover(e) {
-        
         this.setState({
             imageHovered: true
         })
@@ -40,6 +42,14 @@ class Playlists extends React.Component {
     onPlaylistClick() {
         this.setState({
             clicked: !this.state.clicked
+        })
+    }
+
+    onModalClick() {
+        this.setState({
+            modalIsOpen: true,
+            clicked: false
+
         })
     }
 
@@ -81,8 +91,12 @@ class Playlists extends React.Component {
                 : <div>
                 {this.state.imageHovered &&
                     <div>
-                        <span onClick={this.onImageClick} onMouseEnter={this.onImageHover} onMouseLeave={this.onImageLeave} className="view-all-songs">View All Songs </span>
-                        <span onClick={this.onImageClick} onMouseEnter={this.onImageHover} onMouseLeave={this.onImageLeave} className="play-songs">Play!</span>
+                        {this.state.modalIsOpen ? null : <span onClick={this.onImageClick} onMouseEnter={this.onImageHover} onMouseLeave={this.onImageLeave} className="view-all-songs">View All Songs </span>}
+                        <span onClick={this.onModalClick} onMouseEnter={this.onImageHover} className="play-songs">Play!</span>
+                        <Modal className="playlist-modal" overlayClassName="playlist-modal-overlay"
+                            isOpen={this.state.modalIsOpen}>
+                            <h2>Modal title</h2>
+                        </Modal>
                         
                     </div>}
                     {this.state.imageHovered ?

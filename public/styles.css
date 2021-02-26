@@ -3,7 +3,7 @@
 body {
   position: relative;
   max-width: 100%;
-  background-color: #292f31;
+  background-color: #414143;
   flex-direction: column;
 	font-family: 'Mada', sans-serif
 }
@@ -18,7 +18,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap-reverse;
   min-width: 50%;
-  padding: 25px;
+  padding: 10px;
   margin: auto;
 
 }
@@ -26,7 +26,7 @@ body {
 .playlists {
   display:flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 10px;
   max-height: 25%;
   position: relative;
 }
@@ -70,11 +70,15 @@ body {
   min-width: 100%;
   display: flex;
 }
-
+.top-tracks-title { 
+  text-decoration: underline;
+}
 .top-tracks {
   min-width: fit-content;
-  background-color: gray;
+  background-color: #414143;
   border-radius: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 .tracks {
   border-top: black;
@@ -91,7 +95,11 @@ body {
   max-height: 500px;
   overflow: scroll;
   border-radius: 25px;
-  
+  padding: 50px;
+}
+
+.top-artist::-webkit-scrollbar {
+  display: none;
 }
 
 .artist {
@@ -103,13 +111,9 @@ body {
 }
 .artist-img {
   max-width: 200px;
-  max-height: 200px;
+  max-height: 150px;
   display: flex;
   position: relative;
-}
-
-.artist-img:hover {
-  opacity: 0.5;
 }
 
 .artist-img-name {
@@ -142,7 +146,7 @@ body {
   background-color: grey;
   padding: 2px;
   position: absolute;
-  z-index: 100;
+  z-index: 50;
   color: whitesmoke;
   top: 160%;
   left: 50%;
@@ -158,10 +162,28 @@ body {
 }
 .play-songs {
   position: absolute;
-  z-index: 100;
+  z-index: 50;
   color: whitesmoke;
   top: 200%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.playlist-modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: whitesmoke;
+  z-index: 100;
+}
+
+.playlist-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
