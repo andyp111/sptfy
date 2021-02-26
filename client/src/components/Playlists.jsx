@@ -47,7 +47,7 @@ class Playlists extends React.Component {
 
     onModalClick() {
         this.setState({
-            modalIsOpen: true,
+            modalIsOpen: !this.state.modalIsOpen,
             clicked: false
 
         })
@@ -75,7 +75,7 @@ class Playlists extends React.Component {
         }))
        
         
-        //<iframe src="https://open.spotify.com/embed/playlist/1jdZzSyGkdMCjHrhFBGJBq" 
+        //<iframe src="https://open.spotify.com/embed/playlist/1jdZzSyGkdMCjHrhFBGJBq" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     }
 
     render() {
@@ -92,10 +92,17 @@ class Playlists extends React.Component {
                 {this.state.imageHovered &&
                     <div>
                         {this.state.modalIsOpen ? null : <span onClick={this.onImageClick} onMouseEnter={this.onImageHover} onMouseLeave={this.onImageLeave} className="view-all-songs">View All Songs </span>}
-                        <span onClick={this.onModalClick} onMouseEnter={this.onImageHover} className="play-songs">Play!</span>
-                        <Modal className="playlist-modal" overlayClassName="playlist-modal-overlay"
-                            isOpen={this.state.modalIsOpen}>
-                            <h2>Modal title</h2>
+                        {!this.state.modalIsOpen ? <span onClick={this.onModalClick} onMouseEnter={this.onImageHover} className="play-songs">Play!</span> : null}
+                        <Modal 
+                            className="playlist-modal" 
+                            overlayClassName="playlist-modal-overlay"
+                            isOpen={this.state.modalIsOpen}
+                            onRequestClose={this.onModalClick}
+                        >
+                            <iframe src={`https://open.spotify.com/embed/playlist/${this.props.playlist.playlistId}`} width="500" height="700" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            <button onClick={this.onModalClick}>
+                                Close
+                            </button>
                         </Modal>
                         
                     </div>}

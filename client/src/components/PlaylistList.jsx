@@ -16,7 +16,7 @@ class PlaylistList extends React.Component {
             {this.props.playlists.playlists.map((name, index) => {
                 return (
                     <div className="playlist-main" key={index}>
-                        <Playlists playlist={name} />
+                        <Playlists playlist={name}/>
                     </div>
                 )
             })}
