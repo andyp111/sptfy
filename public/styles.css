@@ -145,9 +145,9 @@ body {
   opacity: 1;
 }
 .view-all-songs {
-  border: solid grey;
+  border: solid #202526;
   border-radius: 10px;
-  background-color: grey;
+  background-color: #202526;
   padding: 2px;
   position: absolute;
   z-index: 50;
@@ -171,6 +171,13 @@ body {
   top: 200%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: solid #202526;
+  border-radius: 10px;
+  background-color: #202526;
+}
+
+.play-songs:hover {
+  text-decoration: underline;
 }
 
 .playlist-modal {
