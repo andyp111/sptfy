@@ -41,12 +41,15 @@ class Dashboard extends React.Component {
                         )
                     })}
                 </div>
-                <div className="top-artist">
-                    {this.props.topArtists.topArtists.map((artist, index) => {
-                        return (
-                            <TopArtist artist={artist}/>
-                        )
-                    })}
+                <div>
+                    <h1 style={{color: '#d7dee1', position: 'relative', left: '16rem'}}>Your Top Artists!</h1>
+                    <div className="top-artist">
+                        {this.props.topArtists.topArtists.map((artist, index) => {
+                            return (
+                                <TopArtist artist={artist}/>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         )

@@ -81,12 +81,12 @@ class Playlists extends React.Component {
     render() {
         return (
             <div className="playlists">
-                <h1>{this.props.playlist.name}</h1>
+                <h1 style={{color: "#d7dee1"}}>{this.props.playlist.name}</h1>
                 <br />
                 {this.state.clicked ? 
                     <div className="playlist-songs">
                         <SongsList songs={this.state.songList} />
-                        <span onClick={this.onPlaylistClick}>Go Back</span>
+                        <span onClick={this.onPlaylistClick} style={{color: '#d7dee1'}}>Go Back</span>
                     </div> 
                 : <div>
                 {this.state.imageHovered &&

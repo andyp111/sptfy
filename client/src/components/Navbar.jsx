@@ -26,13 +26,11 @@ import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
 import styled from 'styled-components';
 import { BsFillMusicPlayerFill } from "react-icons/bs";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Test from './Test.jsx';
-import Dashboard from './Dashboard.jsx';
 import store from '../redux/store/store.js'
 
 const Styles = styled.div`
   .navbar { 
-      background-color: gray; 
+      background-color: #292f31; 
       display:flex; 
       flex-direction:row;
       border-radius: 15px;
@@ -40,7 +38,7 @@ const Styles = styled.div`
   a, .navbar-nav, .navbar-light .nav-link {
     color: #9FFFCB;
     display: flex;
-    padding: 10px 5px 10px 10px;
+    padding: 15px;
     &:hover { color: white; }
   }
 
@@ -65,32 +63,35 @@ export class MyNavbar extends React.Component {
     super(props)
 
     this.state = {
-      userImage: store.getState().userInfo.userImg
+      userImage: store.getState().userInfo
     }
   }
   render() {
+    console.log(this.state.userImage.usrImg);
     return (
       <div>
-      <Styles>
-        <Navbar expand="lg">
-          <BsFillMusicPlayerFill sz="large"/>
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
-              <Link to='/aboutyou'>
-                <Nav.Item>About You</Nav.Item>
-              </Link>
-              <Link to='/playlist'>
-                <Nav.Item>Playlists</Nav.Item>
-              </Link>
-              <Link to='/new'>
-                <Nav.Item>Discover New Music</Nav.Item>
-              </Link>
-            </Nav>
-          </Navbar.Collapse>
-          <img className="nav-image" src={this.props.userImage}/>
-        </Navbar>
-      </Styles>
-      {/* <Dashboard followers={this.props.userFollowers} userImage={this.props.userImage} topTracks={this.props.topTracks} topArtists={this.props.topArtists} /> */}
+        <Styles>
+          <Navbar expand="lg">
+            <div style={{padding: '20px'}}>
+              <BsFillMusicPlayerFill size={30} />
+            </div>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ml-auto">
+                <Link to='/aboutyou'>
+                  <Nav.Item>About You</Nav.Item>
+                </Link>
+                <Link to='/playlist'>
+                  <Nav.Item>Playlists</Nav.Item>
+                </Link>
+                <Link to='/new'>
+                  <Nav.Item>Discover New Music</Nav.Item>
+                </Link>
+              </Nav>
+            </Navbar.Collapse>
+            <img className="nav-image" src={this.props.userImage} />
+          </Navbar>
+        </Styles>
+        {/* <Dashboard followers={this.props.userFollowers} userImage={this.props.userImage} topTracks={this.props.topTracks} topArtists={this.props.topArtists} /> */}
       </div>
     )
   }

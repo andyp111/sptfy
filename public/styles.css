@@ -3,7 +3,7 @@
 body {
   position: relative;
   max-width: 100%;
-  background-color: #414143;
+  background-color: #0f1011;
   flex-direction: column;
 	font-family: 'Mada', sans-serif
 }
@@ -12,6 +12,7 @@ body {
   display: flex;
   min-width: 100%;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .playlists-main {
   display: flex;
@@ -32,33 +33,34 @@ body {
 }
 
 .songs-table {
-  background-color: gray;
-  border-radius: 25px;
+  background-color: #202526;
+  border-radius: 5px;
   max-height: 500px;
   overflow: scroll;
 }
 
 .songs-table::-webkit-scrollbar {
   width: 1em;
-  border-radius: 25px;
+  border-radius: 5px;
   scroll-behavior: smooth;
 }
 
 .songs-table::-webkit-scrollbar-track {
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 .songs-table::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 .songs-container {
-  padding: 0px 10px 0px 10px;
+  padding: 5px 10px 5px 10px;
   position: inherit;
   width: fit-content;
   display: flex;
+  color: #d7dee1;
 }
 
 .songs {
@@ -69,13 +71,15 @@ body {
   padding-top: 15px;
   min-width: 100%;
   display: flex;
+  justify-content: center;
 }
 .top-tracks-title { 
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  color: #d7dee1;
 }
 .top-tracks {
   min-width: fit-content;
-  background-color: #414143;
+  background-color: #202526;
   border-radius: 25px;
   padding-left: 25px;
   padding-right: 25px;
@@ -84,7 +88,7 @@ body {
   border-top: black;
 }
 .track-p {
-  color: whitesmoke;
+  color: #d7dee1;
 }
 
 .top-artist {
@@ -119,7 +123,7 @@ body {
 .artist-img-name {
   position: absolute;
   z-index: 100;
-  color:whitesmoke;
+  color:#d7dee1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -147,7 +151,7 @@ body {
   padding: 2px;
   position: absolute;
   z-index: 50;
-  color: whitesmoke;
+  color: #d7dee1;
   top: 160%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -163,7 +167,7 @@ body {
 .play-songs {
   position: absolute;
   z-index: 50;
-  color: whitesmoke;
+  color: #d7dee1;
   top: 200%;
   left: 50%;
   transform: translate(-50%, -50%);

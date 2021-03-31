@@ -8,10 +8,9 @@ class UserInfo extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
-            <div>
-                {this.props.userInfo.username}
+            <div style={{color: '#d7dee1'}}>
+                {this.props.userInfo.username}'s Dashboard
             </div>
         )
     }

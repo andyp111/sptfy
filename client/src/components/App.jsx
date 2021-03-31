@@ -28,6 +28,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    
   }
 
   onLoginClick() {
@@ -40,7 +41,7 @@ class App extends React.Component {
   render() {
     let parsed = queryString.parse(window.location.search);
     let accessToken = parsed.access_token;
-
+    console.log('username', this.state.username)
     return (
       // <div>
       //   <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>
@@ -54,13 +55,12 @@ class App extends React.Component {
       <div>
         {accessToken ?
           <div>
-            <h1>{this.state.username}'s Dashboard</h1>
+            <h1><UserInfo/></h1>
             <div className="navbar-main"> 
               <MyNavbar accessToken={this.state.accessToken} userImage={this.state.userImage}/>
                 {/* {this.state.userFollowers ? <Dashboard followers={this.state.userFollowers} userImage={this.state.userImage} topTracks={this.state.topTracks} topArtists={this.state.topArtists}/>
                 : <div>loading...</div>} */}
                 {/* <Dashboard /> */}
-                <UserInfo />
                 <Switch>
                   <Route path = "/aboutyou" component={Dashboard}/>
                 </Switch>
