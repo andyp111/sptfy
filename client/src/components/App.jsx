@@ -6,7 +6,7 @@ import MyNavbar from './Navbar.jsx';
 import axios from 'axios';
 import queryString from 'query-string';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Test from './Test.jsx';
+import NewMusic from './NewMusic.jsx';
 import Dashboard from './Dashboard.jsx';
 import UserInfo from './UserInfo.jsx';
 import store from '../redux/store/store.js';
@@ -64,7 +64,7 @@ class App extends React.Component {
                 
               </Switch>
               <Switch>
-                <Route path="/new" component={Test} />
+                <Route path="/new" component={NewMusic} />
               </Switch>
             </div>
           </div>
