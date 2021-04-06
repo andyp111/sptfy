@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import store from '../redux/store/store.js';
 import NewMusicArtists from './NewMusicArtists.jsx';
+import NewMusicRecommended from './NewMusicRecommended.jsx';
 
 class NewMusic extends React.Component {
     constructor(props) {
@@ -10,7 +11,8 @@ class NewMusic extends React.Component {
             accessToken: store.getState().userInfo.accessToken,
             topArtists: [],
             selectedArtist: '',
-            selectedGenre: ''
+            selectedGenre: '',
+            recommendedInfo: []
         }
 
         this.getTopArtists = this.getTopArtists.bind(this);
@@ -21,6 +23,12 @@ class NewMusic extends React.Component {
 
     componentDidMount() {
         this.getTopArtists();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.recommendedInfo !== this.state.recommendedInfo) {
+            console.log('state has changed')
+        }
     }
 
     getTopArtists() {
@@ -58,7 +66,9 @@ class NewMusic extends React.Component {
         }, () => console.log(this.state.selectedGenre))
     } 
 
-    getRecommendedArtists() {
+    getRecommendedArtists(e) {
+        e.preventDefault();
+
         axios.get(`https://api.spotify.com/v1/recommendations?limit=3&seed_artists=${this.state.selectedArtist}&seed_genres=${this.state.selectedGenre}`, {
             headers: {
                 'Authorization': 'Bearer ' + this.state.accessToken,
@@ -66,6 +76,15 @@ class NewMusic extends React.Component {
         })
             .then((result) => {
                 console.log(result.data)
+                this.setState({
+                    recommendedInfo: result.data.tracks.map((item) => ({
+                        externalUrl: item.external_urls.spotify,
+                        artist: item.artists[0].name,
+                        albumName: item.name,
+                        image: item.album.images[0].url,
+                        type: item.type,
+                    }))
+                }, () => console.log(this.state.recommendedInfo))
             })
             .catch((error) => {
                 console.log(error)
@@ -84,6 +103,12 @@ class NewMusic extends React.Component {
                             <NewMusicArtists artistInfo={artistInfo} handleArtistClick={this.getSelectedArtist} getSelectedGenre={this.getSelectedGenre}/>
                         )
                     })}
+                </div>
+                <div>
+                    <button onClick={(e) => this.getRecommendedArtists(e)}>See Rec</button>
+                </div>
+                <div>
+                    {this.state.recommendedInfo.length > 0 ? <NewMusicRecommended recommended={this.state.recommendedInfo}/> : null}
                 </div>
             </div>
         )
