@@ -64,7 +64,7 @@ class NewMusic extends React.Component {
         this.setState({
             selectedGenre: e.target.value
         }, () => console.log(this.state.selectedGenre))
-    } 
+    }
 
     getRecommendedArtists(e) {
         e.preventDefault();
@@ -100,15 +100,15 @@ class NewMusic extends React.Component {
                 <div className="artists-container">
                     {this.state.topArtists.map((artistInfo) => {
                         return (
-                            <NewMusicArtists artistInfo={artistInfo} handleArtistClick={this.getSelectedArtist} getSelectedGenre={this.getSelectedGenre}/>
+                            <NewMusicArtists artistInfo={artistInfo} handleArtistClick={this.getSelectedArtist} getSelectedGenre={this.getSelectedGenre} />
                         )
                     })}
                 </div>
-                <div>
+                <div className="rec-selector">
                     <button onClick={(e) => this.getRecommendedArtists(e)}>See Rec</button>
                 </div>
-                <div>
-                    {this.state.recommendedInfo.length > 0 ? <NewMusicRecommended recommended={this.state.recommendedInfo}/> : null}
+                <div className="recommended">
+                    {this.state.recommendedInfo.length > 0 ? <NewMusicRecommended recommended={this.state.recommendedInfo} /> : null}
                 </div>
             </div>
         )

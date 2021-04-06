@@ -13,10 +13,10 @@ const NewMusicArtists = (props) => {
                 }
             }>
                 <img style={{ maxHeight: '75px', maxWidth: '75px', borderRadius: '10px' }} src={props.artistInfo.image}></img>
-                {props.artistInfo.name}
+                <p style={{color: "#d7dee1"}}>{props.artistInfo.name}</p>
             </div>
             <div>
-                {hasBeenClicked && <Dropdown options={props.artistInfo.genres} getSelectedGenre={(e) => props.getSelectedGenre(e)}/>}
+                {hasBeenClicked && <Dropdown options={props.artistInfo.genres} getSelectedGenre={(e) => props.getSelectedGenre(e)} />}
             </div>
         </div>
     )

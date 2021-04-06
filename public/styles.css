@@ -196,3 +196,27 @@ body {
   
 }
 
+.newMusicContainer {
+  display: flex;
+  max-width: 1000px;
+
+}
+
+.artists-container {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  max-height: 500px;
+  max-width: 200px;
+}
+
+.rec-selector {
+  display: flex;
+  flex-direction: row;
+  max-width: 100px;
+  max-height: 50px;
+  padding: 50px;
+  position: relative;
+  top: 15rem;
+  /* left: 20rem; */
+}
