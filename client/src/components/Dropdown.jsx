@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React, { useState } from 'react';
 
 const Dropdown = (props) => {
 
@@ -6,10 +6,12 @@ const Dropdown = (props) => {
 
     return (
         <div>
-            <select value={selectedValue} onChange={e => setSelectedValue(e.target.value)}>
-                {props.options.map((item, index) => <option key={index} value={item.value}>{item.name}</option>)}
+            <select value={selectedValue} onChange={(e) => {
+                setSelectedValue(e.target.value)
+                props.getSelectedGenre(e)
+            }}>
+                {props.options.map((item, index) => <option key={index} value={item}>{item}</option>)}
             </select>
-            <p>{selectedValue}</p>
         </div>
     );
 }
