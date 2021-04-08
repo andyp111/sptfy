@@ -1,11 +1,11 @@
-@import 'https://fonts.googleapis.com/css?family=Mada';
+@import "https://fonts.googleapis.com/css?family=Mada";
 
 body {
   position: relative;
   max-width: 100%;
   background-color: #0f1011;
   flex-direction: column;
-	font-family: 'Mada', sans-serif
+  font-family: "Mada", sans-serif;
 }
 
 .container {
@@ -21,11 +21,10 @@ body {
   min-width: 50%;
   padding: 10px;
   margin: auto;
-
 }
 
 .playlists {
-  display:flex;
+  display: flex;
   flex-direction: column;
   padding: 10px;
   max-height: 25%;
@@ -73,7 +72,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.top-tracks-title { 
+.top-tracks-title {
   /* text-decoration: underline; */
   color: #d7dee1;
 }
@@ -123,7 +122,7 @@ body {
 .artist-img-name {
   position: absolute;
   z-index: 100;
-  color:#d7dee1;
+  color: #d7dee1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -156,13 +155,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   display: block;
-  
 }
 
 .view-all-songs:hover {
   text-decoration: underline;
-  
-  
 }
 .play-songs {
   position: absolute;
@@ -193,30 +189,61 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  
 }
 
 .newMusicContainer {
   display: flex;
   max-width: 1000px;
-
 }
 
 .artists-container {
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  max-height: 500px;
+  max-height: 800px;
   max-width: 200px;
 }
 
 .rec-selector {
+  max-width: 300px;
+  max-height: 500px;
+  padding: 15px;
+  position: relative;
+  /* top: 15rem; */
+  left: 12rem;
+  align-content: center;
+  padding-left: 25px;
+  justify-content: center;
+}
+
+.rec-selector > p {
+  color: rgb(215, 222, 225);
+  font-size: 25px;
+  align-content: center;
+  justify-content: center;
+  position: relative;
+}
+
+.rec-selector button {
+  position: relative;
+}
+
+.recommended {
+  position: relative;
+  /* padding: 20px; */
   display: flex;
   flex-direction: row;
-  max-width: 100px;
-  max-height: 50px;
-  padding: 50px;
+  top: 4rem;
+  left: 20rem;
+  max-width: 200px;
+}
+
+.recommended-container {
+  display: flex;
+}
+
+.recommended-single {
   position: relative;
-  top: 15rem;
-  /* left: 20rem; */
+  padding: 20px;
+  color: #d7dee1;
 }

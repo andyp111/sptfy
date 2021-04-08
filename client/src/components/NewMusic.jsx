@@ -105,6 +105,8 @@ class NewMusic extends React.Component {
                     })}
                 </div>
                 <div className="rec-selector">
+                    <p className="rec-selector-p">Click on one of your top artists and choose a genre!</p>
+                    <br />
                     <button onClick={(e) => this.getRecommendedArtists(e)}>See Rec</button>
                 </div>
                 <div className="recommended">

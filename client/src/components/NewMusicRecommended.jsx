@@ -5,13 +5,15 @@ const NewMusicRecommended = (props) => {
     console.log(props.recommended)
 
     return (
-        <div>
+        <div className="recommended-container">
             {props.recommended.map((info) => {
                 return (
-                    <div>
-                        {info.artist}
-                        {info.albumName}
-                        <img style={{maxWidth: '100px', maxHeight: '100px', borderRadius: '10px'}} src={info.image}></img>
+                    <div className="recommended-single">
+                        <p>{info.artist}</p>
+                        <br />
+                        <img style={{ maxWidth: '200px', maxHeight: '200px', borderRadius: '10px' }} src={info.image}></img>
+                        <br />
+                        <p>{info.albumName}</p>
                     </div>
                 )
             })}
