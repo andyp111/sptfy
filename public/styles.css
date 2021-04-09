@@ -210,7 +210,7 @@ body {
   padding: 15px;
   position: relative;
   /* top: 15rem; */
-  left: 12rem;
+  
   align-content: center;
   padding-left: 25px;
   justify-content: center;
@@ -226,6 +226,7 @@ body {
 
 .rec-selector button {
   position: relative;
+  left: 5rem;
 }
 
 .recommended {
