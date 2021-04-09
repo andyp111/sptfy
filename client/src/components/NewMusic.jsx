@@ -69,7 +69,7 @@ class NewMusic extends React.Component {
     getRecommendedArtists(e) {
         e.preventDefault();
 
-        axios.get(`https://api.spotify.com/v1/recommendations?limit=3&seed_artists=${this.state.selectedArtist}&seed_genres=${this.state.selectedGenre}`, {
+        axios.get(`https://api.spotify.com/v1/recommendations?limit=4&seed_artists=${this.state.selectedArtist}&seed_genres=${this.state.selectedGenre}`, {
             headers: {
                 'Authorization': 'Bearer ' + this.state.accessToken,
             }
@@ -91,7 +91,9 @@ class NewMusic extends React.Component {
             })
     }
 
+    getArtistName() {
 
+    }
 
     render() {
 

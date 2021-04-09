@@ -18,6 +18,7 @@ const NewMusicArtists = (props) => {
             <div>
                 {hasBeenClicked && <Dropdown options={props.artistInfo.genres} getSelectedGenre={(e) => props.getSelectedGenre(e)} />}
             </div>
+            <br />
         </div>
     )
 }

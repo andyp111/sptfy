@@ -1,11 +1,11 @@
-import React , { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Dropdown from './Dropdown.jsx';
 import PlaylistList from './PlaylistList.jsx'
 import Player from './Player.jsx';
 import MyNavbar from './Navbar.jsx';
 import axios from 'axios';
 import queryString from 'query-string';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NewMusic from './NewMusic.jsx';
 import Dashboard from './Dashboard.jsx';
 import UserInfo from './UserInfo.jsx';
@@ -20,7 +20,7 @@ class App extends React.Component {
     this.state = {
       username: store.getState().userInfo.username,
       userImage: store.getState().userInfo.userImg,
-      filterString:'',
+      filterString: '',
       accessToken: '',
       clicked: false
     }
@@ -39,38 +39,31 @@ class App extends React.Component {
     let accessToken = parsed.access_token;
     console.log('username', this.state.username)
     return (
-      // <div>
-      //   <button onClick={() => window.location = 'http://vpz-sptfy-backend.herokuapp.com/login'}>
-      //   Sign in
-      //   </button>
-      //   <UserInfo />
-      //   <PlaylistList />
-      //   <Dashboard />
-      // </div>
       <Router>
-      <div>
-        {accessToken ?
-          <div>
-            <h1><UserInfo/></h1>
-            <div className="navbar-main"> 
-                {/* {this.state.userFollowers ? <Dashboard followers={this.state.userFollowers} userImage={this.state.userImage} topTracks={this.state.topTracks} topArtists={this.state.topArtists}/>
-                : <div>loading...</div>} */}
-                {/* <Dashboard /> */}
+        <div>
+          {accessToken ?
+            <div>
+              <h1><UserInfo /></h1>
+              <div className="navbar-main">
                 <Switch>
-                  <Route path = "/aboutyou" component={Dashboard}/>
+                  <Route path="/aboutyou" component={Dashboard} />
                 </Switch>
-              <Switch>
-                <Route path="/playlist" component={PlaylistList}/>
-                
-              </Switch>
-              <Switch>
-                <Route path="/new" component={NewMusic} />
-              </Switch>
+                <Switch>
+                  <Route path="/playlist" component={PlaylistList} />
+
+                </Switch>
+                <Switch>
+                  <Route path="/new" component={NewMusic} />
+                </Switch>
+              </div>
             </div>
-          </div>
-            : <button onClick={this.onLoginClick}>Sign in</button>
-        }
-      </div>
+            :
+            <div className='login-page'>
+              <h1 style={{color: '#d7dee1'}}>Welcome to my Spotify tracker. Click below to sign in with your Spotify Account.</h1>
+              <button style={{height: '30px'}} onClick={this.onLoginClick}>Sign in</button>
+            </div>
+          }
+        </div>
       </Router>
     )
   }

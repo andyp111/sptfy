@@ -210,7 +210,6 @@ body {
   padding: 15px;
   position: relative;
   /* top: 15rem; */
-  left: 12rem;
   align-content: center;
   padding-left: 25px;
   justify-content: center;
@@ -226,6 +225,7 @@ body {
 
 .rec-selector button {
   position: relative;
+  left: 5rem;
 }
 
 .recommended {
@@ -234,7 +234,7 @@ body {
   display: flex;
   flex-direction: row;
   top: 4rem;
-  left: 20rem;
+  left: 10rem;
   max-width: 200px;
 }
 
@@ -246,8 +246,20 @@ body {
   position: relative;
   padding: 20px;
   color: #d7dee1;
+  text-align: -webkit-center;
 }
 /*
 adding to test commit
 2
 */
+
+.login-page {
+  position: absolute;
+  text-align: -webkit-center;
+  /* left: 23%; */
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* height: 5000px; */
+  max-height: -webkit-fill-available;
+}
